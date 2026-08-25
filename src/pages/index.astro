@@ -1,0 +1,85 @@
+---
+// Home de triagem — roteia o visitante para o funil certo (ver docs 03).
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import '../styles/home.css';
+
+const CDN = config.media.cdn_base + '/photos';
+const wa = (msg) => `https://wa.me/${config.whatsapp.phone}?text=${encodeURIComponent(msg)}`;
+
+// Corporativo → LP pronta. Casamento/Debutante → WhatsApp até as LPs existirem.
+const cards = [
+  {
+    funil: 'casamento',
+    label: 'Casamento',
+    img: `${CDN}/hero_corporativo_resultado.webp`,
+    href: wa('Olá! Gostaria de um orçamento para um casamento na Casa Kefren.'),
+    external: true,
+  },
+  {
+    funil: 'debutante',
+    label: 'Debutante',
+    img: `${CDN}/area-externa_corporativo_resultado.webp`,
+    href: wa('Olá! Gostaria de um orçamento para uma festa de debutante na Casa Kefren.'),
+    external: true,
+  },
+  {
+    funil: 'corporativo',
+    label: 'Corporativo',
+    img: `${CDN}/salao-principal_corporativo_resultado.webp`,
+    href: '/eventos-corporativos',
+    external: false,
+  },
+];
+---
+
+<Base
+  title="Casa Kefren | Espaço de eventos no Tatuapé, São Paulo"
+  description="Casa Kefren: espaço para casamentos, debutantes e eventos corporativos no Tatuapé, São Paulo. Escolha o tipo de evento e solicite seu orçamento."
+  canonical={`https://${config.domain}/`}
+  hideWhatsApp={true}
+>
+  <main class="home">
+    <div class="home-inner">
+      <img class="home-logo" src={`${CDN}/logo_principal_resultado.webp`} alt="Casa Kefren" width="261" height="30" fetchpriority="high" />
+      <p class="home-eyebrow">Casa Kefren</p>
+      <h1 class="home-title">Que tipo de <em>evento</em> você vai realizar?</h1>
+
+      <div class="home-grid">
+        {cards.map((c) => (
+          <a
+            class="tri-card"
+            href={c.href}
+            data-funil={c.funil}
+            data-cta
+            {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}
+          >
+            <img src={c.img} alt={`Eventos — ${c.label}`} loading="lazy" />
+            <div class="tri-card-body">
+              <h2>{c.label}</h2>
+              <span class="tri-cta">
+                Solicitar orçamento
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <footer class="home-footer">
+      <span>&copy; 2026 Casa Kefren. Todos os direitos reservados.</span>
+      <span>Desenvolvido por <a href="https://dmove.com.br" target="_blank" rel="noopener">Dmove</a></span>
+    </footer>
+  </main>
+
+  <script>
+    // Mede a escolha de funil no dataLayer (GTM)
+    document.querySelectorAll('[data-funil]').forEach((el) => {
+      el.addEventListener('click', () => {
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        (window as any).dataLayer.push({ event: 'escolha_funil', funil: el.getAttribute('data-funil') });
+      });
+    });
+  </script>
+</Base>

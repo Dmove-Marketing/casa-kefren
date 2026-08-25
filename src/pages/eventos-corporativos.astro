@@ -1,0 +1,373 @@
+---
+// Gerado por tools/build-page.mjs a partir de casa-kefren-preview.html
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import { getPreset } from '../scripts/form-presets';
+import '../styles/casa-kefren.css';
+
+const title = 'Casa Kefren Corporativo | Eventos Corporativos no Tatuapé, São Paulo';
+const description =
+  'Personalização, sofisticação e estrutura para transformar a proposta da sua empresa em um evento que realmente se destaca. Até 350 convidados no Tatuapé, São Paulo.';
+const webhook = config.forms['lead-form'].webhooks[0];
+// Campos do formulário vêm do PADRÃO Dmove (preset definido no config.json)
+const fields = getPreset(config.forms['lead-form'].preset);
+---
+
+<Base title={title} description={description} canonical={`https://${config.domain}/eventos-corporativos`}>
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container">
+    <a href="#topo" class="logo-link" aria-label="Casa Kefren Corporativo">
+      <img src="https://media.dmove.com.br/clients/casa-kefren/photos/logo_principal_resultado.webp" alt="Casa Kefren" />
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#experiencia">O espaço</a></li>
+        <li><a href="#espacos">Espaços</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="#experiencia">O espaço</a>
+    <a href="#espacos">Espaços</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#diferenciais">Diferenciais</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#localizacao">Localização</a>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="topo">
+  <div class="hero-media">
+    <img fetchpriority="high" src="https://media.dmove.com.br/clients/casa-kefren/photos/hero_corporativo_resultado.webp" alt="Salão da Casa Kefren decorado para evento corporativo, com iluminação sofisticada" />
+    <div class="frame-mark" aria-hidden="true"></div>
+  </div>
+  <div class="hero-content container">
+    <h1><em>Estrutura, personalização e sofisticação</em><br>para eventos corporativos</h1>
+    <p class="eyebrow center">Eventos corporativos | Tatuapé</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn btn-primary">Solicite orçamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUTORIDADE ===================== -->
+<section class="authority">
+  <div class="container">
+    <div class="authority-item reveal"><span>Até <span class="count" data-target="350">0</span> convidados</span></div>
+    <div class="authority-divider"></div>
+    <div class="authority-item reveal"><span>Arquitetura contemporânea</span></div>
+    <div class="authority-divider"></div>
+    <div class="authority-item reveal"><span>Estrutura versátil</span></div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIÊNCIA 360° ===================== -->
+<section class="experience" id="experiencia">
+  <div class="container">
+    <div class="experience-text reveal">
+      <div class="section-head">
+        <p class="eyebrow no-line">Experiência 360°</p>
+        <h2><em>Um espaço</em> preparado<br>para diferentes propostas</h2>
+        <p>Do encontro entre equipes às grandes celebrações corporativas, a Casa Kefren oferece uma estrutura contemporânea e modular, que se adapta a diferentes formatos, layouts e objetivos. Ambientes integrados, tecnologia, gastronomia e atendimento consultivo criam as condições para que cada evento seja planejado de acordo com a proposta da sua empresa.</p>
+      </div>
+      <a href="#contato" class="btn btn-outline-dark experience-cta">Solicite orçamento</a>
+    </div>
+    <div class="experience-media reveal">
+      <video autoplay muted loop playsinline preload="metadata" poster="https://media.dmove.com.br/clients/casa-kefren/photos/001_-_R6LE4353.webp" aria-label="Vídeo institucional da Casa Kefren mostrando o ambiente preparado para evento corporativo">
+        <source src="https://media.dmove.com.br/clients/casa-kefren/videos/video.webm" type="video/mp4">
+      </video>
+      <div class="frame-mark" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ESPAÇOS ===================== -->
+<section class="spaces" id="espacos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">Espaços</p>
+      <h2><em>Estrutura</em> que acompanha<br>a dimensão do seu evento</h2>
+    </div>
+    <div class="spaces-grid">
+      <div class="space-card reveal">
+        <img src="https://media.dmove.com.br/clients/casa-kefren/photos/salao-principal_corporativo_resultado.webp" alt="Salão principal da Casa Kefren" />
+        <div class="space-card-body">
+          <h3>Salão principal</h3>
+          <p>Arquitetura contemporânea, estrutura ampla e liberdade para configurar o ambiente de acordo com diferentes formatos e necessidades.</p>
+          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
+        </div>
+      </div>
+      <div class="space-card reveal">
+        <img src="https://media.dmove.com.br/clients/casa-kefren/photos/area-externa_corporativo_resultado.webp" alt="Área externa da Casa Kefren com teto retrátil" />
+        <div class="space-card-body">
+          <h3>Área externa</h3>
+          <p>Um ambiente que amplia as possibilidades da sua realização, com teto retrátil e estrutura preparada para diferentes momentos, formatos e propostas.</p>
+          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EVENTOS ===================== -->
+<section class="events" id="eventos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">Para todos os formatos</p>
+      <h2><em>Versatilidade</em> para diferentes objetivos corporativos</h2>
+    </div>
+    <div class="events-grid">
+      <div class="event-item reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 22h8M12 15v7M5 3h14l-1.5 8.5a5.5 5.5 0 0 1-11 0Z"/><path d="M5 6H3a2 2 0 0 0 2 4M19 6h2a2 2 0 0 1-2 4"/></svg></div>
+        <span>Confraternizações</span>
+      </div>
+      <div class="event-item reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg></div>
+        <span>Convenções</span>
+      </div>
+      <div class="event-item reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 2.5 3 5.2 3 8 0 1.7-1.3 3-3 3s-3-1.3-3-3c0-2.8 1-5.5 3-8Z"/><path d="M9.5 13.5 6 21l3-1.5 3 1.5-1.5-4M14.5 13.5 18 21l-3-1.5-3 1.5 1.5-4"/></svg></div>
+        <span>Lançamentos</span>
+      </div>
+      <div class="event-item reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0Z"/><path d="M7 5H4a3 3 0 0 0 3 5M17 5h3a3 3 0 0 1-3 5"/></svg></div>
+        <span>Premiações</span>
+      </div>
+      <div class="event-item reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="m16 11 2 2 4-4"/></svg></div>
+        <span>Eventos de relacionamento</span>
+      </div>
+      <div class="event-item reveal">
+        <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l6 4V6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14"/></svg></div>
+        <span>Ativações de marca</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== DIFERENCIAIS ===================== -->
+<section class="differentials" id="diferenciais">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">Diferenciais</p>
+      <h2><em>Excelência</em> em cada etapa<br>do seu evento</h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <img src="https://media.dmove.com.br/clients/casa-kefren/photos/gastronomia_corporativos_resultado.webp" alt="Gastronomia autoral da Casa Kefren" loading="lazy" />
+        <span>Gastronomia</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src="https://media.dmove.com.br/clients/casa-kefren/photos/bar_corporativos_resultado.webp" alt="Bar e coquetelaria da Casa Kefren" loading="lazy" />
+        <span>Bar e coquetelaria</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src="https://media.dmove.com.br/clients/casa-kefren/photos/projecao-mapeada_corporativos_resultado.webp" alt="Projeção mapeada em evento na Casa Kefren" loading="lazy" />
+        <span>Projeção Mapeada</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src="https://media.dmove.com.br/clients/casa-kefren/photos/personalizacao_corporativos_resultado.webp" alt="Personalização de ambientes na Casa Kefren" loading="lazy" />
+        <span>Personalização</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src="https://media.dmove.com.br/clients/casa-kefren/photos/atendimento-personalizado_corporativos_resultado.webp" alt="Atendimento personalizado da equipe Casa Kefren" loading="lazy" />
+        <span>Atendimento personalizado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECNOLOGIA ===================== -->
+<section class="technology">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow no-line">Tecnologia</p>
+      <h2><em>Impacto visual</em> que acompanha a sua ideia</h2>
+      <p class="lede">Com projeção mapeada, a Casa Kefren amplia as possibilidades de cenografia e personalização, criando ambientes imersivos e visuais alinhados à identidade e à proposta de cada evento.</p>
+    </div>
+    <div class="technology-media reveal">
+      <img src="https://media.dmove.com.br/clients/casa-kefren/photos/tecnologia_corporativos_resultado.webp" alt="Projeção mapeada com identidade visual Casa Kefren em telão de LED" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GASTRONOMIA ===================== -->
+<section class="gastronomy">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-dark no-line">Gastronomia</p>
+      <h2>Gastronomia à altura de <em>grandes eventos</em></h2>
+      <p class="lede">A Casa Kefren reúne parceiros especializados para elevar cada etapa do seu evento. A gastronomia autoral desenvolve menus personalizados de acordo com a proposta de cada evento, enquanto a <strong>DDrink</strong> assina a coquetelaria, trazendo variedade, qualidade e personalidade ao serviço.</p>
+    </div>
+    <div class="gastronomy-track-wrap reveal">
+      <div class="gastronomy-track">
+        <a href="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos01_resultado.webp" target="_blank" rel="noopener"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos01_resultado.webp" alt="Prato autoral servido em evento Casa Kefren" loading="lazy" /></figure></a>
+        <a href="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos02_resultado.webp" target="_blank" rel="noopener"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos02_resultado.webp" alt="Coquetelaria assinada por DDrink" loading="lazy" /></figure></a>
+        <a href="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos03_resultado.webp" target="_blank" rel="noopener"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos03_resultado.webp" alt="Serviço gastronômico em evento corporativo" loading="lazy" /></figure></a>
+        <a href="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos04_resultado.webp" target="_blank" rel="noopener"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos04_resultado.webp" alt="Detalhe de drink autoral" loading="lazy" /></figure></a>
+        <a href="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos05_resultado.webp" target="_blank" rel="noopener"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/carrossel-gastronomia_corporativos05_resultado.webp" alt="Mesa de finger food em evento corporativo" loading="lazy" /></figure></a>
+      </div>
+      <div class="gastronomy-nav">
+        <button class="gastronomy-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="gastronomy-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow no-line">Galeria</p>
+      <h2><em>Um espaço.</em> Infinitas possibilidades para o seu evento</h2>
+    </div>
+    <div class="gallery-mosaic">
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos01_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos01_resultado.webp" alt="Evento corporativo na Casa Kefren 1" loading="lazy" /></figure></a>
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos02_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos02_resultado.webp" alt="Evento corporativo na Casa Kefren 2" loading="lazy" /></figure></a>
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos03_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos03_resultado.webp" alt="Evento corporativo na Casa Kefren 3" loading="lazy" /></figure></a>
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos04_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos04_resultado.webp" alt="Evento corporativo na Casa Kefren 4" loading="lazy" /></figure></a>
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos05_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos05_resultado.webp" alt="Evento corporativo na Casa Kefren 5" loading="lazy" /></figure></a>
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos06_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos06_resultado.webp" alt="Evento corporativo na Casa Kefren 6" loading="lazy" /></figure></a>
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos07_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos07_resultado.webp" alt="Evento corporativo na Casa Kefren 7" loading="lazy" /></figure></a>
+      <a href="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos08_resultado.webp" target="_blank" rel="noopener" class="reveal"><figure><img src="https://media.dmove.com.br/clients/casa-kefren/photos/galeria_corporativos08_resultado.webp" alt="Evento corporativo na Casa Kefren 8" loading="lazy" /></figure></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="contact-info reveal">
+      <p class="eyebrow no-line">Contato</p>
+      <h2><em>Pronto</em> para transformar<br>seu próximo evento em<br>um grande sucesso?</h2>
+      <p>Preencha o formulário e receba um atendimento personalizado para conhecer nosso espaço, esclarecer dúvidas e solicitar um orçamento.</p>
+      <div class="contact-address">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <strong>Casa Kefren Corporativo</strong>
+          R. Padre Estevão Pernet, 276 — Tatuapé, São Paulo - SP, 03315-000
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <form id="contact-form" novalidate data-form-id="lead-form" data-project="casa-kefren" data-submit-url={webhook} data-fonte="Landing page/casa-kefren" data-grid-id="contact-form" data-success-id="contact-success">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+        <div class="form-grid">
+          {fields.map((f) => {
+            // id no padrão do GTM (Enhanced Conversions leem #form-field-nome/email/telefone)
+            const fid = `form-field-${f.name}`;
+            return (
+              <div class:list={['field', f.full && 'full']}>
+                <label for={fid}>{f.label}{f.hint && <span class="field-opt"> ({f.hint})</span>}</label>
+                {f.type === 'select' ? (
+                  <select id={fid} name={f.name} required={f.required}>
+                    {f.options?.map((o) => (
+                      <option value={o.value} disabled={o.disabled} selected={o.selected}>{o.label}</option>
+                    ))}
+                  </select>
+                ) : f.type === 'textarea' ? (
+                  <textarea id={fid} name={f.name} rows={4} placeholder={f.placeholder} required={f.required}></textarea>
+                ) : f.datepicker ? (
+                  <input type="text" id={fid} name={f.name} placeholder={f.placeholder} required={f.required} autocomplete="off" data-flatpickr />
+                ) : (
+                  <input type={f.type} id={fid} name={f.name} placeholder={f.placeholder} required={f.required} />
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <button type="submit" class="btn btn-primary">Solicitar Orçamento</button>
+        <p class="form-note">Em até 1 dia útil nossa equipe entrará em contato.</p>
+      </form>
+      <div class="form-success" id="contact-success">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <h3>Recebemos sua solicitação!</h3>
+        <p>Obrigado pelo interesse na Casa Kefren. Nossa equipe entrará em contato em breve para dar sequência ao seu orçamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCALIZAÇÃO ===================== -->
+<section class="location" id="localizacao">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">Localização</p>
+      <h2><em>Localização</em> estratégica<br>para grandes eventos</h2>
+    </div>
+    <div class="location-frame reveal">
+      <iframe
+        src="https://www.google.com/maps?q=R.+Padre+Estev%C3%A3o+Pernet%2C+276+-+Tatuap%C3%A9%2C+S%C3%A3o+Paulo+-+SP%2C+03315-000&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mapa de localização da Casa Kefren Corporativo"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <img src="https://media.dmove.com.br/clients/casa-kefren/photos/logo_principal_resultado.webp" alt="Casa Kefren" />
+      <ul class="footer-nav">
+        <li><a href="#experiencia">O espaço</a></li>
+        <li><a href="#espacos">Espaços</a></li>
+        <li><a href="#eventos">Eventos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>R. Padre Estevão Pernet, 276 — Tatuapé, São Paulo - SP, 03315-000</span>
+      <span>&copy; 2026 Casa Kefren Corporativo. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    import '../scripts/casa-kefren.js';
+    import { initForms } from '../scripts/forms';
+    import flatpickr from 'flatpickr';
+    import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+    import 'flatpickr/dist/flatpickr.min.css';
+
+    function initDatepickers() {
+      document.querySelectorAll('[data-flatpickr]').forEach((el) => {
+        if (el.dataset.flatpickrReady) return;
+        el.dataset.flatpickrReady = 'true';
+        // máscara de digitação dd/mm/aaaa
+        el.addEventListener('input', () => {
+          let v = el.value.replace(/\D/g, '').slice(0, 8);
+          if (v.length > 4) v = `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4)}`;
+          else if (v.length > 2) v = `${v.slice(0, 2)}/${v.slice(2)}`;
+          el.value = v;
+        });
+        flatpickr(el, {
+          locale: Portuguese,
+          dateFormat: 'd/m/Y',
+          minDate: 'today',
+          disableMobile: true,
+          allowInput: true,
+        });
+      });
+    }
+
+    initForms();
+    initDatepickers();
+  </script>
+</Base>
