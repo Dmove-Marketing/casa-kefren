@@ -5,23 +5,22 @@ import config from '../../config.json';
 import '../styles/home.css';
 
 const CDN = config.media.cdn_base + '/photos';
-const wa = (msg) => `https://wa.me/${config.whatsapp.phone}?text=${encodeURIComponent(msg)}`;
 
-// Corporativo → LP pronta. Casamento/Debutante → WhatsApp até as LPs existirem.
+// Corporativo/Debutante → LP pronta. Casamento → abre o popup do WhatsApp (ainda não tem LP própria).
 const cards = [
   {
     funil: 'casamento',
     label: 'Casamento',
     img: `${CDN}/hero_corporativo_resultado.webp`,
-    href: wa('Olá! Gostaria de um orçamento para um casamento na Casa Kefren.'),
-    external: true,
+    href: '#',
+    openWhatsApp: true,
   },
   {
     funil: 'debutante',
     label: 'Debutante',
-    img: `${CDN}/area-externa_corporativo_resultado.webp`,
-    href: wa('Olá! Gostaria de um orçamento para uma festa de debutante na Casa Kefren.'),
-    external: true,
+    img: `${CDN}/hero_debutante_resultado.webp`,
+    href: '/debutantes',
+    external: false,
   },
   {
     funil: 'corporativo',
@@ -37,7 +36,6 @@ const cards = [
   title="Casa Kefren | Espaço de eventos no Tatuapé, São Paulo"
   description="Casa Kefren: espaço para casamentos, debutantes e eventos corporativos no Tatuapé, São Paulo. Escolha o tipo de evento e solicite seu orçamento."
   canonical={`https://${config.domain}/`}
-  hideWhatsApp={true}
 >
   <main class="home">
     <div class="home-inner">
@@ -52,6 +50,7 @@ const cards = [
             href={c.href}
             data-funil={c.funil}
             data-cta
+            {...(c.openWhatsApp ? { 'data-open-wa': true } : {})}
             {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}
           >
             <img src={c.img} alt={`Eventos — ${c.label}`} loading="lazy" />
@@ -79,6 +78,17 @@ const cards = [
       el.addEventListener('click', () => {
         (window as any).dataLayer = (window as any).dataLayer || [];
         (window as any).dataLayer.push({ event: 'escolha_funil', funil: el.getAttribute('data-funil') });
+      });
+    });
+
+    // Casamento ainda não tem LP própria: abre o popup do WhatsApp em vez de navegar.
+    // stopPropagation evita que o listener de "clique fora" do próprio widget
+    // capture esse mesmo clique e feche o popup imediatamente após abrir.
+    document.querySelectorAll('[data-open-wa]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        (window as any).__openWaPopup?.();
       });
     });
   </script>

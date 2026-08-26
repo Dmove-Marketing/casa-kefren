@@ -202,6 +202,12 @@ export function initForms() {
       if (tracking['external_id']) metaCapi['external_id'] = tracking['external_id'];
       if (tracking['event_id'])    metaCapi['event_id']    = tracking['event_id'];
 
+      // UTMs — além de virem concatenadas na "Fonte", vão também como campos separados
+      const utmFields: Record<string, string> = {};
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id'].forEach((k) => {
+        if (tracking[k]) utmFields[k] = tracking[k];
+      });
+
       const payload: Record<string, string> = {
         ...capitalizedFields,
         Fonte: fonte,
@@ -212,6 +218,7 @@ export function initForms() {
         'Desenvolvido por': 'Dmove',
         form_id: formId,
         form_name: formId,
+        ...utmFields,
         ...metaCapi,
       };
 

@@ -9,6 +9,10 @@
 @font-face { font-family: "Clarity City"; src: url("/fonts/ClarityCity-Bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
 @font-face { font-family: "Clarity City"; src: url("/fonts/ClarityCity-BoldItalic.ttf") format("truetype"); font-weight: 700; font-style: italic; font-display: swap; }
 
+/* Swarsh Daisy — usada nos <em> de destaque da LP de debutante */
+@font-face { font-family: "Swarsh Daisy"; src: url("https://media.dmove.com.br/clients/casa-kefren/fonts/Swarsh_Daisy-Regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Swarsh Daisy"; src: url("https://media.dmove.com.br/clients/casa-kefren/fonts/Swarsh_Daisy-Italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+
 :root {
   --wine: #5a1e2c;
   --wine-dark: #3d131c;
@@ -76,6 +80,16 @@ h1 em, h2 em, h3 em, h4 em,
 h1 .accent, h2 .accent, h3 .accent, h4 .accent {
   font-style: italic;
   font-weight: 700;
+}
+
+/* Debutante: fonte de destaque nos <em> */
+.page-debutantes h1 em, .page-debutantes h2 em, .page-debutantes h3 em, .page-debutantes h4 em,
+.page-debutantes h1 .accent, .page-debutantes h2 .accent, .page-debutantes h3 .accent, .page-debutantes h4 .accent {
+  font-family: "Swarsh Daisy", "Clarity City", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.35em;
+  line-height: 1;
 }
 
 p { margin: 0; line-height: 1.36; }
@@ -169,7 +183,7 @@ p { margin: 0; line-height: 1.36; }
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
-  z-index: 100;
+  z-index: 200;
   padding: 18px 0;
   transition: background 0.4s var(--ease), padding 0.4s var(--ease), box-shadow .4s var(--ease);
 }
@@ -315,6 +329,7 @@ p { margin: 0; line-height: 1.36; }
   color: var(--text-on-dark);
   padding: 60px 0;
 }
+.authority-compact { padding: 32px 0; }
 .authority .container {
   display: flex;
   flex-wrap: nowrap;
@@ -345,9 +360,10 @@ p { margin: 0; line-height: 1.36; }
 }
 .experience .container {
   display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
+  grid-template-columns: 1fr 1.4fr;
   gap: clamp(32px, 6vw, 80px);
   align-items: center;
+  max-width: 1612px;
 }
 .experience-text .section-head { margin-bottom: 0; max-width: none; }
 .experience-cta { margin-top: 20px; }
@@ -355,7 +371,7 @@ p { margin: 0; line-height: 1.36; }
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  aspect-ratio: 4/5;
+  aspect-ratio: 16/9;
   box-shadow: 0 30px 60px -20px rgba(20,17,16,0.35);
 }
 .experience-media img,
@@ -398,6 +414,51 @@ p { margin: 0; line-height: 1.36; }
 }
 .space-card-body h3 { font-size: clamp(21px, 2.4vw, 27px); color: #fff; margin-bottom: 12px; }
 .space-card-body p { color: var(--text-on-dark-muted); font-size: 15px; margin-bottom: 24px; max-width: 420px; }
+
+/* ---------- Spaces (3 columns — debutante) ---------- */
+.spaces-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.spaces-grid-3 .space-card { aspect-ratio: 3/4.4; }
+.spaces-grid-3 .space-card::before {
+  background: linear-gradient(180deg, rgba(20,17,16,0) 38%, rgba(20,17,16,0.55) 68%, rgba(20,17,16,0.96) 100%);
+}
+/* Salão principal e Camarim precisam de mais contraste sob o texto */
+.spaces-grid-3 .space-card:nth-child(1)::before,
+.spaces-grid-3 .space-card:nth-child(3)::before {
+  background: linear-gradient(180deg, rgba(20,17,16,0) 22%, rgba(20,17,16,0.68) 60%, rgba(20,17,16,0.98) 100%);
+}
+.spaces-grid-3 .space-card-body { padding: clamp(20px, 2.4vw, 30px); }
+.spaces-grid-3 .space-card-body h3 { font-size: clamp(17px, 1.7vw, 20px); margin-bottom: 8px; }
+.spaces-grid-3 .space-card-body p { font-size: 13px; margin-bottom: 16px; }
+.spaces-grid-3 .space-card-body .btn-sm { padding: 9px 18px; font-size: 11px; letter-spacing: 0.05em; }
+
+/* ---------- Spotlight (foto de destaque em tela cheia) ---------- */
+.spotlight {
+  position: relative;
+  height: clamp(360px, 62vw, 620px);
+  overflow: hidden;
+  color: #fff;
+}
+.spotlight img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+}
+.spotlight::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(20,17,16,0.15) 0%, rgba(20,17,16,0.05) 40%, rgba(20,17,16,0.65) 100%);
+}
+.spotlight-caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  padding: clamp(28px, 5vw, 56px) var(--pad);
+  text-align: center;
+}
+.spotlight-caption p {
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 500;
+  font-style: italic;
+  max-width: 640px;
+  margin: 0 auto;
+}
 
 /* ---------- Events ---------- */
 .events { padding: var(--section-pad) 0; background: var(--charcoal); color: var(--text-on-dark); }
@@ -495,6 +556,27 @@ p { margin: 0; line-height: 1.36; }
   box-shadow: 0 30px 70px -20px rgba(0,0,0,0.5);
 }
 
+/* Carrossel infinito (crossfade em CSS puro) — pista de dança, debutante */
+.pista-carousel { position: relative; aspect-ratio: 4/3; }
+.pista-carousel img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  opacity: 0;
+  animation: pista-crossfade 12s ease-in-out infinite;
+}
+.pista-carousel img:nth-child(1) { animation-delay: 0s; }
+.pista-carousel img:nth-child(2) { animation-delay: 4s; }
+.pista-carousel img:nth-child(3) { animation-delay: 8s; }
+@keyframes pista-crossfade {
+  0%, 100% { opacity: 0; }
+  4% { opacity: 1; }
+  29% { opacity: 1; }
+  37% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pista-carousel img { animation: none; opacity: 0; }
+  .pista-carousel img:nth-child(1) { opacity: 1; }
+}
+
 /* ---------- Gastronomia ---------- */
 .gastronomy { padding: var(--section-pad) 0; background: var(--cream-2); }
 .gastronomy .container {
@@ -579,6 +661,10 @@ p { margin: 0; line-height: 1.36; }
 .gallery-mosaic a.reveal:nth-child(6) { transition-delay: 0.16s; }
 .gallery-mosaic a.reveal:nth-child(7) { transition-delay: 0.24s; }
 .gallery-mosaic a.reveal:nth-child(8) { transition-delay: 0.32s; }
+.gallery-mosaic a.reveal:nth-child(9) { transition-delay: 0.4s; }
+
+/* Modificador: grid de 3 colunas (9 imagens — debutante) */
+.gallery-mosaic-3 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 260px); }
 
 /* ---------- Contato ---------- */
 .contact { padding: var(--section-pad) 0; background: var(--ivory); }
@@ -682,6 +768,14 @@ p { margin: 0; line-height: 1.36; }
   font-size: 12.5px; color: rgba(199,186,176,0.7);
 }
 
+/* ---------- Quebra de linha só no desktop ---------- */
+.br-desktop { display: none; }
+@media (min-width: 721px) { .br-desktop { display: inline; } }
+
+/* ---------- Quebra de linha só no mobile ---------- */
+.br-mobile { display: none; }
+@media (max-width: 720px) { .br-mobile { display: inline; } }
+
 /* ---------- Reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
@@ -697,7 +791,15 @@ p { margin: 0; line-height: 1.36; }
   .diff-grid { grid-template-columns: repeat(3, 1fr); }
   .events-grid { grid-template-columns: repeat(2, 1fr); }
   .spaces-grid { grid-template-columns: 1fr; }
+  .spaces-grid-3 { grid-template-columns: 1fr 1fr; }
   .gallery-mosaic { grid-template-rows: repeat(2, 200px); }
+  .gallery-mosaic-3 { grid-template-rows: repeat(3, 200px); }
+
+  /* Assim que a seção empilha em 1 coluna, o carrossel passa a mostrar 1 imagem por vez.
+     O item flex real é o <a> (o figure fica um nível abaixo), então a largura precisa ir nele. */
+  .gastronomy-track > a { flex: 0 0 auto; width: 100%; }
+  .gastronomy-track figure { width: 100%; aspect-ratio: 4/3; }
+  .gastronomy-nav { justify-content: center; }
 }
 
 @media (max-width: 720px) {
@@ -708,21 +810,57 @@ p { margin: 0; line-height: 1.36; }
     background: var(--charcoal);
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 30px;
     transform: translateY(-100%);
-    transition: transform 0.45s var(--ease);
+    visibility: hidden;
+    pointer-events: none;
+    transition: transform 0.45s var(--ease), visibility 0s linear 0.45s;
   }
-  .mobile-menu.open { transform: translateY(0); }
+  .mobile-menu.open {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+    transition: transform 0.45s var(--ease), visibility 0s linear 0s;
+  }
   .mobile-menu a { font-size: 22px; color: #fff; font-weight: 500; }
 
+  /* .experience-media-portrait: texto antes da imagem, formato 16/9 */
+  .experience-media-portrait { order: 0; aspect-ratio: 16/9; }
+
   .authority { padding: 42px 0; }
+  .authority-compact { padding: 14px 0; }
   .authority .container { flex-wrap: wrap; }
   .authority-item { padding: 0 16px; font-size: 15px; }
   .authority-divider:nth-of-type(2) { display: none; }
+
+  /* .authority-compact: divisórias horizontais, largura total, itens empilhados */
+  .authority-compact .container { flex-direction: column; flex-wrap: nowrap; gap: 0; }
+  .authority-compact .authority-item { width: 100%; justify-content: center; text-align: center; padding: 8px 0; min-height: 44px; }
+  .authority-compact .authority-divider {
+    width: calc(100% + 2 * var(--pad)); height: 1px;
+  }
+  .authority-compact .authority-divider:nth-of-type(2) { display: block; }
   .events-grid { grid-template-columns: 1fr; }
-  .diff-grid { grid-template-columns: repeat(2, 1fr); }
+  .spaces-grid-3 { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .gallery-mosaic {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(4, 150px);
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(8, 240px);
+  }
+  .gallery-mosaic-3 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(9, 240px);
   }
   .footer-top { flex-direction: column; align-items: flex-start; }
+
+  /* Ajustes finos de mobile */
+  .diff-grid { grid-template-columns: 1fr; }
+
+  /* Títulos de seção um pouco menores no mobile */
+  .section-head h2,
+  .technology h2,
+  .gastronomy h2,
+  .contact-info h2 { font-size: 25px; }
+
+  .technology-media { order: 0; }
+
+  .contact-address { display: none; }
 }

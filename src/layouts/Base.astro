@@ -35,6 +35,8 @@ interface Props {
   whatsAppShowEmpresaField?: boolean;
   /** Oculta o widget de WhatsApp (ex.: home de triagem, que só roteia) */
   hideWhatsApp?: boolean;
+  /** Classe aplicada na <body> — usada para escopar estilos por página (ex.: fonte de destaque só na LP de debutante) */
+  bodyClass?: string;
 }
 
 const {
@@ -49,6 +51,7 @@ const {
   whatsAppMessage,
   whatsAppShowEmpresaField = false,
   hideWhatsApp = false,
+  bodyClass = '',
 } = Astro.props;
 
 import config from '../../config.json';
@@ -104,7 +107,7 @@ const defaultJsonLd = {
 
     <slot name="head" />
   </head>
-  <body>
+  <body class={bodyClass || undefined}>
     <!-- GTM Body noscript -->
     {trackingEnabled && gtmId && <GTMBody gtmId={gtmId} />}
 

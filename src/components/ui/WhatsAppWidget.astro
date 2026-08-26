@@ -394,6 +394,8 @@ const introMessages = [
       form_name: 'form_whatsapp',
     };
     ['fbc', 'fbp', 'external_id', 'event_id'].forEach((k) => { if (tracking[k]) payload[k] = tracking[k]; });
+    // UTMs — além de virem concatenadas na "Fonte", vão também como campos separados
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'utm_id'].forEach((k) => { if (tracking[k]) payload[k] = tracking[k]; });
 
     try {
       if (submitUrl) {
@@ -538,6 +540,10 @@ const introMessages = [
     popup.hidden ? openPopup() : closePopup();
   });
   closeBtn.addEventListener('click', closePopup);
+
+  // Permite que outros elementos da página (ex.: cards da home de triagem)
+  // abram o popup do WhatsApp programaticamente, sem precisar clicar no FAB.
+  window.__openWaPopup = () => { if (popup.hidden) openPopup(); };
 
   /* ── Teaser ─────────────────────────────────── */
   function hideTeaser(persist) {
