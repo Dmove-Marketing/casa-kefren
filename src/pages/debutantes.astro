@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import StaticMap from '../components/ui/StaticMap.astro';
 import config from '../../config.json';
 import { getPreset } from '../scripts/form-presets';
 import '../styles/casa-kefren.css';
@@ -82,7 +83,9 @@ const CDN = config.media.cdn_base + '/photos';
       <a href="#contato" class="btn btn-outline-dark experience-cta">Solicite orçamento</a>
     </div>
     <div class="experience-media experience-media-portrait reveal">
-      <img src={`${CDN}/galeria_debutante09_resultado.webp`} alt="Ambiente da Casa Kefren preparado para festa de 15 anos" loading="lazy" />
+      <video autoplay muted loop playsinline preload="metadata" poster={`${CDN}/galeria_debutante09_resultado.webp`} aria-label="Vídeo institucional da Casa Kefren mostrando o ambiente preparado para festa de debutante">
+        <source src="https://media.dmove.com.br/clients/casa-kefren/videos/sobre_debutante.webm" type="video/webm">
+      </video>
       <div class="frame-mark" aria-hidden="true"></div>
     </div>
   </div>
@@ -125,11 +128,8 @@ const CDN = config.media.cdn_base + '/photos';
 </section>
 
 <!-- ===================== FOTO DE DESTAQUE ===================== -->
-<section class="spotlight">
+<section class="spotlight" style={`--spotlight-bg:url(${CDN}/destaque_debutante_resultado.webp)`}>
   <img src={`${CDN}/destaque_debutante_resultado.webp`} alt="Entrada da Casa Kefren em destaque para festa de debutante" loading="lazy" />
-  <div class="spotlight-caption">
-    <p>Uma entrada para ser lembrada<br class="br-desktop">para sempre.</p>
-  </div>
 </section>
 
 <!-- ===================== DIFERENCIAIS ===================== -->
@@ -169,7 +169,7 @@ const CDN = config.media.cdn_base + '/photos';
   <div class="container">
     <div class="reveal">
       <p class="eyebrow eyebrow-dark no-line">Gastronomia</p>
-      <h2>Sabores que tornam<br> <em>a celebração</em><br>ainda mais especial</h2>
+      <h2>Sabores que tornam<br> <em>a celebração</em><br class="br-desktop"> ainda<br class="br-mobile"> mais especial</h2>
       <p class="lede">A Casa Kefren reúne parceiros especializados que impactam diretamente na experiência do seu evento. O menu é assinado por uma equipe de gastronomia especializada, enquanto a <strong>DDrink</strong> assina a coquetelaria, trazendo variedade, qualidade e personalidade ao serviço.</p>
     </div>
     <div class="gastronomy-track-wrap reveal">
@@ -287,12 +287,13 @@ const CDN = config.media.cdn_base + '/photos';
       <h2><em>Localização estratégica</em><br>para facilitar o trajeto<br>dos seus convidados</h2>
     </div>
     <div class="location-frame reveal">
-      <iframe
+      <StaticMap
         src="https://www.google.com/maps?q=Casa+Kefren%2C+R.+Padre+Estev%C3%A3o+Pernet%2C+276+-+Tatuap%C3%A9%2C+S%C3%A3o+Paulo+-+SP%2C+03315-000&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Mapa de localização da Casa Kefren"
-      ></iframe>
+        height={460}
+      />
+    </div>
+    <div class="location-cta reveal">
+      <a href="#contato" class="btn btn-primary">Agende uma visita</a>
     </div>
   </div>
 </section>

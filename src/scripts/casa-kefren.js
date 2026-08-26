@@ -76,17 +76,63 @@ if (counters.length && 'IntersectionObserver' in window) {
   counters.forEach((el) => (el.textContent = el.getAttribute('data-target')));
 }
 
-/* Carrossel da Gastronomia */
+/* Carrossel da Gastronomia — loop infinito (clona 1º/último item nas pontas) */
 function setupCarousel(trackSel, prevSel, nextSel) {
   const track = document.querySelector(trackSel);
   const prevBtn = document.querySelector(prevSel);
   const nextBtn = document.querySelector(nextSel);
   if (!track || !prevBtn || !nextBtn) return;
-  const scrollAmount = () => {
-    const card = track.querySelector('figure, a');
-    return card ? card.getBoundingClientRect().width + 16 : 300;
-  };
-  nextBtn.addEventListener('click', () => track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
-  prevBtn.addEventListener('click', () => track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+
+  const items = Array.from(track.children);
+  if (items.length < 2) return;
+
+  const firstClone = items[0].cloneNode(true);
+  const lastClone = items[items.length - 1].cloneNode(true);
+  firstClone.setAttribute('aria-hidden', 'true');
+  lastClone.setAttribute('aria-hidden', 'true');
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, items[0]);
+
+  const gapPx = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 16;
+  const cardWidth = () => items[0].getBoundingClientRect().width + gapPx;
+
+  const total = items.length;
+  let index = 1; // 0 = clone do último, 1..total = itens reais, total+1 = clone do primeiro
+  let settleTimer;
+
+  function scrollToIndex(i, smooth) {
+    track.scrollTo({ left: i * cardWidth(), behavior: smooth ? 'smooth' : 'auto' });
+  }
+  scrollToIndex(index, false);
+
+  function settle() {
+    if (index === 0) {
+      index = total;
+      scrollToIndex(index, false);
+    } else if (index === total + 1) {
+      index = 1;
+      scrollToIndex(index, false);
+    }
+  }
+
+  function goTo(i) {
+    index = i;
+    scrollToIndex(index, true);
+    clearTimeout(settleTimer);
+    // Espera o scroll suave realmente terminar (scrollend quando suportado) antes
+    // de reposicionar sem animação — reposicionar cedo demais causa um "salto"
+    // visível no meio da animação.
+    let settled = false;
+    const run = () => { if (settled) return; settled = true; settle(); };
+    if ('onscrollend' in window) {
+      track.addEventListener('scrollend', run, { once: true });
+      settleTimer = setTimeout(run, 900); // fallback de segurança
+    } else {
+      settleTimer = setTimeout(run, 650);
+    }
+  }
+
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+  prevBtn.addEventListener('click', () => goTo(index - 1));
 }
 setupCarousel('.gastronomy-track', '.gastronomy-prev', '.gastronomy-next');

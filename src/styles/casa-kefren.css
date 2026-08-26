@@ -452,6 +452,18 @@ p { margin: 0; line-height: 1.36; }
   padding: clamp(28px, 5vw, 56px) var(--pad);
   text-align: center;
 }
+
+/* Desktop: tela cheia + efeito parallax (imagem fixa, rola por trás do conteúdo) */
+@media (min-width: 981px) {
+  .spotlight {
+    height: 100vh;
+    background-image: var(--spotlight-bg);
+    background-size: cover;
+    background-position: center 20%;
+    background-attachment: fixed;
+  }
+  .spotlight img { display: none; }
+}
 .spotlight-caption p {
   font-size: clamp(20px, 2.4vw, 28px);
   font-weight: 500;
@@ -747,6 +759,7 @@ p { margin: 0; line-height: 1.36; }
   box-shadow: 0 30px 60px -30px rgba(20,17,16,0.3);
 }
 .location-frame iframe { width: 100%; height: 100%; border: 0; filter: grayscale(0.15) contrast(1.05); }
+.location-cta { margin-top: 32px; text-align: center; }
 
 /* ---------- Footer ---------- */
 .site-footer {
@@ -863,4 +876,26 @@ p { margin: 0; line-height: 1.36; }
   .technology-media { order: 0; }
 
   .contact-address { display: none; }
+
+  /* Corporativo: conteúdo centralizado nessas seções no mobile */
+  .page-corporativo .experience-text,
+  .page-corporativo .technology .container > .reveal:first-child,
+  .page-corporativo .gastronomy .container > .reveal:first-child,
+  .page-corporativo .contact-info { text-align: center; }
+  .page-corporativo .technology .lede,
+  .page-corporativo .gastronomy .lede,
+  .page-corporativo .contact-info p { margin-left: auto; margin-right: auto; }
+
+  /* Corporativo: hero um pouco menor no mobile */
+  .page-corporativo .hero-content h1 { font-size: 24px; }
+  .page-corporativo .hero-content .eyebrow { font-size: 10.5px; }
+
+  /* Debutante: conteúdo centralizado nessas seções no mobile */
+  .page-debutantes .experience-text,
+  .page-debutantes .technology .container > .reveal:first-child,
+  .page-debutantes .gastronomy .container > .reveal:first-child,
+  .page-debutantes .contact-info { text-align: center; }
+  .page-debutantes .technology .lede,
+  .page-debutantes .gastronomy .lede,
+  .page-debutantes .contact-info p { margin-left: auto; margin-right: auto; }
 }

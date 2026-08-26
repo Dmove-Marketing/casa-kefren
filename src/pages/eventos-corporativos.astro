@@ -1,6 +1,7 @@
 ---
 // Gerado por tools/build-page.mjs a partir de casa-kefren-preview.html
 import Base from '../layouts/Base.astro';
+import StaticMap from '../components/ui/StaticMap.astro';
 import config from '../../config.json';
 import { getPreset } from '../scripts/form-presets';
 import '../styles/casa-kefren.css';
@@ -13,7 +14,7 @@ const webhook = config.forms['lead-form'].webhooks[0];
 const fields = getPreset(config.forms['lead-form'].preset);
 ---
 
-<Base title={title} description={description} canonical={`https://${config.domain}/eventos-corporativos`}>
+<Base title={title} description={description} canonical={`https://${config.domain}/eventos-corporativos`} bodyClass="page-corporativo">
 <!-- ===================== HEADER ===================== -->
 <header class="site-header">
   <div class="container">
@@ -53,7 +54,7 @@ const fields = getPreset(config.forms['lead-form'].preset);
     <div class="frame-mark" aria-hidden="true"></div>
   </div>
   <div class="hero-content container">
-    <h1><em>Estrutura, personalização<br class="br-mobile"> e sofisticação</em><br>para eventos corporativos</h1>
+    <h1><em>Estrutura, personalização<br class="br-mobile"> e sofisticação</em><br class="br-desktop"> para<br class="br-mobile"> eventos corporativos</h1>
     <p class="eyebrow center">Eventos corporativos | Tatuapé</p>
     <div class="hero-actions">
       <a href="#contato" class="btn btn-primary">Solicite orçamento</a>
@@ -309,12 +310,13 @@ const fields = getPreset(config.forms['lead-form'].preset);
       <h2><em>Localização</em> estratégica<br>para grandes eventos</h2>
     </div>
     <div class="location-frame reveal">
-      <iframe
+      <StaticMap
         src="https://www.google.com/maps?q=Casa+Kefren%2C+R.+Padre+Estev%C3%A3o+Pernet%2C+276+-+Tatuap%C3%A9%2C+S%C3%A3o+Paulo+-+SP%2C+03315-000&output=embed"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Mapa de localização da Casa Kefren Corporativo"
-      ></iframe>
+        height={460}
+      />
+    </div>
+    <div class="location-cta reveal">
+      <a href="#contato" class="btn btn-primary">Agende uma visita</a>
     </div>
   </div>
 </section>
