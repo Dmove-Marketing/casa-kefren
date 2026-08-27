@@ -1,0 +1,169 @@
+/* ===========================================================
+   Casa Kefren — /bio (link na bio)
+   Depende dos tokens e componentes de casa-kefren.css
+   (fontes, .btn, .form-card, .form-grid, .field, .form-success)
+   =========================================================== */
+
+.bio {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: clamp(56px, 12vh, 110px) var(--pad) clamp(44px, 9vh, 84px);
+  text-align: center;
+  color: var(--text-on-dark);
+  overflow: hidden;
+}
+
+/* Imagem de fundo + escurecimento para legibilidade */
+.bio::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(20,17,16,0.55) 0%, rgba(20,17,16,0.72) 55%, rgba(20,17,16,0.88) 100%),
+    var(--bio-bg) center / cover no-repeat;
+}
+
+.bio-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 560px;
+  min-height: calc(100dvh - clamp(56px, 12vh, 110px) - clamp(44px, 9vh, 84px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* logo ancorada no topo; texto + botões descem para o rodapé da tela */
+  justify-content: space-between;
+}
+
+.bio-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.bio-logo {
+  height: 34px;
+  width: auto;
+  filter: brightness(0) invert(1);
+}
+
+.bio-title {
+  font-size: clamp(26px, 5vw, 40px);
+  font-weight: 500;
+  line-height: 1.14;
+  color: #fff;
+  max-width: 20ch;
+}
+
+.bio-title em {
+  font-style: italic;
+  font-weight: 700;
+  color: inherit;
+}
+
+.bio-subtitle {
+  margin-top: 18px;
+  font-size: clamp(15px, 2.4vw, 18px);
+  letter-spacing: 0.02em;
+  color: var(--text-on-dark-muted);
+}
+
+.bio-actions {
+  margin-top: clamp(30px, 6vh, 44px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.bio-actions .btn {
+  width: 100%;
+}
+
+.bio-scroll {
+  margin-top: clamp(36px, 8vh, 64px);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-on-dark-muted);
+  transition: color 0.3s var(--ease);
+}
+
+.bio-scroll:hover { color: #fff; }
+
+.bio-scroll svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  animation: bio-bob 1.8s var(--ease) infinite;
+}
+
+@keyframes bio-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+/* ---------- Seção do formulário ---------- */
+.bio-form-section {
+  background: var(--ivory);
+  padding: var(--section-pad) var(--pad);
+}
+
+.bio-form-wrap {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.bio-form-head {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.bio-form-head .eyebrow { justify-content: center; }
+.bio-form-head .eyebrow::before { display: none; }
+
+.bio-form-head h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 500;
+}
+
+.bio-form-head h2 em { font-style: italic; font-weight: 700; }
+
+.bio-form-head p {
+  margin-top: 16px;
+  color: var(--text-muted);
+  font-size: 15.5px;
+}
+
+/* ---------- Rodapé ---------- */
+.bio-footer {
+  background: var(--charcoal);
+  color: var(--text-on-dark-muted);
+  text-align: center;
+  padding: 28px var(--pad);
+  font-size: 12.5px;
+  letter-spacing: 0.02em;
+}
+
+.bio-footer a { color: var(--text-on-dark); text-decoration: underline; text-underline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .bio-scroll svg { animation: none; }
+}
+
+@media (max-width: 600px) {
+  .bio::before { background-attachment: scroll; }
+  .bio-title { max-width: 24ch; }
+}

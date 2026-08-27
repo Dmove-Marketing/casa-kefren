@@ -1,0 +1,156 @@
+---
+// /bio — link na bio (Instagram etc.): apresenta a Casa Kefren e capta o lead.
+import Base from '../layouts/Base.astro';
+import config from '../../config.json';
+import { getPreset } from '../scripts/form-presets';
+import '../styles/casa-kefren.css';
+import '../styles/bio.css';
+
+const title = 'Casa Kefren | Espaço de eventos no Tatuapé, São Paulo';
+const description =
+  'Estrutura e sofisticação para experiências inesquecíveis. Conheça a Casa Kefren e solicite seu orçamento.';
+
+const webhook = config.forms['lead-form'].webhooks[0];
+const fields = getPreset('social');
+
+const CDN = config.media.cdn_base + '/photos';
+const bioBg = `${config.media.cdn_base}/photos/hero_bio_resultado.webp`;
+---
+
+<Base
+  title={title}
+  description={description}
+  canonical={`https://${config.domain}/bio`}
+  ogImage={bioBg}
+  noIndex
+  bodyClass="page-bio"
+>
+  <!-- ===================== HERO / LINKS ===================== -->
+  <section class="bio" style={`--bio-bg: url(${bioBg})`}>
+    <div class="bio-inner">
+      <img
+        class="bio-logo"
+        src={`${CDN}/logo_principal_resultado.webp`}
+        alt="Casa Kefren"
+        width="296"
+        height="34"
+        fetchpriority="high"
+      />
+
+      <div class="bio-copy">
+        <h1 class="bio-title">
+          Estrutura e sofisticação para experiências <em>inesquecíveis</em>.
+        </h1>
+        <p class="bio-subtitle">Conheça a Casa Kefren.</p>
+
+        <div class="bio-actions">
+          <a
+            class="btn btn-ghost"
+            href="https://casakefren.com.br"
+            target="_blank"
+            rel="noopener"
+            data-cta
+          >
+            Quem somos
+          </a>
+          <a class="btn btn-primary" href="#formulario" data-cta>Solicitar orçamento</a>
+        </div>
+
+        <a class="bio-scroll" href="#formulario" aria-label="Ir para o formulário">
+          Fale com a gente
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FORMULÁRIO ===================== -->
+  <section class="bio-form-section" id="formulario">
+    <div class="bio-form-wrap">
+      <div class="bio-form-head">
+        <p class="eyebrow no-line">Orçamento</p>
+        <h2><em>Vamos planejar</em><br>o seu evento</h2>
+        <p>Preencha o formulário e nossa equipe entra em contato com você.</p>
+      </div>
+
+      <div class="form-card">
+        <form
+          id="bio-form"
+          novalidate
+          data-form-id="lead-form"
+          data-project="casa-kefren"
+          data-submit-url={webhook}
+          data-fonte="Link na bio/bio"
+          data-grid-id="bio-form"
+          data-success-id="bio-success"
+        >
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+          <div class="form-grid">
+            {fields.map((f) => {
+              const fid = `form-field-${f.name}`;
+              return (
+                <div class:list={['field', f.full && 'full']}>
+                  <label for={fid}>{f.label}{f.hint && <span class="field-opt"> ({f.hint})</span>}</label>
+                  {f.type === 'select' ? (
+                    <select id={fid} name={f.name} required={f.required}>
+                      {f.options?.map((o) => (
+                        <option value={o.value} disabled={o.disabled} selected={o.selected}>{o.label}</option>
+                      ))}
+                    </select>
+                  ) : f.type === 'textarea' ? (
+                    <textarea id={fid} name={f.name} rows={4} placeholder={f.placeholder} required={f.required}></textarea>
+                  ) : f.datepicker ? (
+                    <input type="text" id={fid} name={f.name} placeholder={f.placeholder} required={f.required} autocomplete="off" data-flatpickr />
+                  ) : (
+                    <input type={f.type} id={fid} name={f.name} placeholder={f.placeholder} required={f.required} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <button type="submit" class="btn btn-primary">Solicitar orçamento</button>
+          <p class="form-note">Em até 1 dia útil nossa equipe entrará em contato.</p>
+        </form>
+        <div class="form-success" id="bio-success">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <h3>Recebemos sua solicitação!</h3>
+          <p>Obrigado pelo interesse na Casa Kefren. Nossa equipe entrará em contato em breve para dar sequência ao seu orçamento.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bio-footer">
+    &copy; 2026 Casa Kefren &nbsp;·&nbsp; Desenvolvido por <a href="https://dmove.com.br" target="_blank" rel="noopener">Dmove</a>
+  </footer>
+
+  <script>
+    import { initForms } from '../scripts/forms';
+    import flatpickr from 'flatpickr';
+    import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+    import 'flatpickr/dist/flatpickr.min.css';
+
+    function initDatepickers() {
+      document.querySelectorAll('[data-flatpickr]').forEach((el) => {
+        if (el.dataset.flatpickrReady) return;
+        el.dataset.flatpickrReady = 'true';
+        el.addEventListener('input', () => {
+          let v = el.value.replace(/\D/g, '').slice(0, 8);
+          if (v.length > 4) v = `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4)}`;
+          else if (v.length > 2) v = `${v.slice(0, 2)}/${v.slice(2)}`;
+          el.value = v;
+        });
+        flatpickr(el, {
+          locale: Portuguese,
+          dateFormat: 'd/m/Y',
+          minDate: 'today',
+          disableMobile: true,
+          allowInput: true,
+        });
+      });
+    }
+
+    initForms();
+    initDatepickers();
+  </script>
+</Base>
