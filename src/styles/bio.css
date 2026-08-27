@@ -88,33 +88,6 @@
   width: 100%;
 }
 
-.bio-scroll {
-  margin-top: clamp(36px, 8vh, 64px);
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--text-on-dark-muted);
-  transition: color 0.3s var(--ease);
-}
-
-.bio-scroll:hover { color: #fff; }
-
-.bio-scroll svg {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  animation: bio-bob 1.8s var(--ease) infinite;
-}
-
-@keyframes bio-bob {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
-}
-
 /* ---------- Seção do formulário ---------- */
 .bio-form-section {
   background: var(--ivory);
@@ -158,10 +131,6 @@
 }
 
 .bio-footer a { color: var(--text-on-dark); text-decoration: underline; text-underline-offset: 2px; }
-
-@media (prefers-reduced-motion: reduce) {
-  .bio-scroll svg { animation: none; }
-}
 
 @media (max-width: 600px) {
   .bio::before { background-attachment: scroll; }
