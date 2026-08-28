@@ -92,7 +92,7 @@ import '../styles/casa-kefren.css';
 
 const title = 'Casa Kefren Corporativo | Eventos Corporativos no Tatuapé, São Paulo';
 const description =
-  'Personalização, sofisticação e estrutura para transformar a proposta da sua empresa em um evento que realmente se destaca. Até 350 convidados no Tatuapé, São Paulo.';
+  'Personalização, sofisticação e estrutura para transformar a proposta da sua empresa em um evento que realmente se destaca. De 80 a 400 convidados no Tatuapé, São Paulo.';
 const webhook = config.forms['lead-form'].webhooks[0];
 ---
 
