@@ -293,6 +293,8 @@ p { margin: 0; line-height: 1.36; }
   z-index: 1;
   animation: heroFadeIn 1.6s var(--ease) 0.2s both;
 }
+/* Casamentos: moldura da hero em branco */
+.page-casamentos .hero-media .frame-mark { border-color: #fff; }
 .hero-content {
   position: relative;
   z-index: 1;
@@ -873,6 +875,11 @@ p { margin: 0; line-height: 1.36; }
     grid-template-rows: repeat(6, 240px);
   }
   .footer-top { flex-direction: column; align-items: flex-start; }
+
+  /* Casamentos: footer centralizado no mobile */
+  .page-casamentos .footer-top { align-items: center; }
+  .page-casamentos .footer-nav { justify-content: center; }
+  .page-casamentos .footer-bottom { justify-content: center; text-align: center; }
 
   /* Ajustes finos de mobile */
   .diff-grid { grid-template-columns: 1fr; }
