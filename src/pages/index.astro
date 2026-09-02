@@ -6,14 +6,14 @@ import '../styles/home.css';
 
 const CDN = config.media.cdn_base + '/photos';
 
-// Corporativo/Debutante → LP pronta. Casamento → abre o popup do WhatsApp (ainda não tem LP própria).
+// Cada funil → LP pronta.
 const cards = [
   {
     funil: 'casamento',
     label: 'Casamento',
-    img: `${CDN}/hero_corporativo_resultado.webp`,
-    href: '#',
-    openWhatsApp: true,
+    img: `${CDN}/Gemini_Generated_Image_mbmls1mbmls1mbml.webp`,
+    href: '/casamentos',
+    external: false,
   },
   {
     funil: 'debutante',
@@ -50,7 +50,6 @@ const cards = [
             href={c.href}
             data-funil={c.funil}
             data-cta
-            {...(c.openWhatsApp ? { 'data-open-wa': true } : {})}
             {...(c.external ? { target: '_blank', rel: 'noopener' } : {})}
           >
             <img src={c.img} alt={`Eventos — ${c.label}`} loading="lazy" />
@@ -78,17 +77,6 @@ const cards = [
       el.addEventListener('click', () => {
         (window as any).dataLayer = (window as any).dataLayer || [];
         (window as any).dataLayer.push({ event: 'escolha_funil', funil: el.getAttribute('data-funil') });
-      });
-    });
-
-    // Casamento ainda não tem LP própria: abre o popup do WhatsApp em vez de navegar.
-    // stopPropagation evita que o listener de "clique fora" do próprio widget
-    // capture esse mesmo clique e feche o popup imediatamente após abrir.
-    document.querySelectorAll('[data-open-wa]').forEach((el) => {
-      el.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        (window as any).__openWaPopup?.();
       });
     });
   </script>

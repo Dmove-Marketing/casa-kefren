@@ -82,9 +82,11 @@ h1 .accent, h2 .accent, h3 .accent, h4 .accent {
   font-weight: 700;
 }
 
-/* Debutante: fonte de destaque nos <em> */
+/* Debutante e Casamentos: fonte de destaque nos <em> */
 .page-debutantes h1 em, .page-debutantes h2 em, .page-debutantes h3 em, .page-debutantes h4 em,
-.page-debutantes h1 .accent, .page-debutantes h2 .accent, .page-debutantes h3 .accent, .page-debutantes h4 .accent {
+.page-debutantes h1 .accent, .page-debutantes h2 .accent, .page-debutantes h3 .accent, .page-debutantes h4 .accent,
+.page-casamentos h1 em, .page-casamentos h2 em, .page-casamentos h3 em, .page-casamentos h4 em,
+.page-casamentos h1 .accent, .page-casamentos h2 .accent, .page-casamentos h3 .accent, .page-casamentos h4 .accent {
   font-family: "Swarsh Daisy", "Clarity City", "Helvetica Neue", Arial, sans-serif;
   font-weight: 400;
   font-style: italic;
@@ -678,6 +680,9 @@ p { margin: 0; line-height: 1.36; }
 /* Modificador: grid de 3 colunas (9 imagens — debutante) */
 .gallery-mosaic-3 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(3, 260px); }
 
+/* Modificador: grid de 3 colunas × 2 linhas (6 imagens — casamentos) */
+.gallery-mosaic-6 { grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 300px); }
+
 /* ---------- Contato ---------- */
 .contact { padding: var(--section-pad) 0; background: var(--ivory); }
 .contact .container {
@@ -807,6 +812,7 @@ p { margin: 0; line-height: 1.36; }
   .spaces-grid-3 { grid-template-columns: 1fr 1fr; }
   .gallery-mosaic { grid-template-rows: repeat(2, 200px); }
   .gallery-mosaic-3 { grid-template-rows: repeat(3, 200px); }
+  .gallery-mosaic-6 { grid-template-rows: repeat(2, 220px); }
 
   /* Assim que a seção empilha em 1 coluna, o carrossel passa a mostrar 1 imagem por vez.
      O item flex real é o <a> (o figure fica um nível abaixo), então a largura precisa ir nele. */
@@ -862,6 +868,10 @@ p { margin: 0; line-height: 1.36; }
     grid-template-columns: 1fr;
     grid-template-rows: repeat(9, 240px);
   }
+  .gallery-mosaic-6 {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 240px);
+  }
   .footer-top { flex-direction: column; align-items: flex-start; }
 
   /* Ajustes finos de mobile */
@@ -890,12 +900,19 @@ p { margin: 0; line-height: 1.36; }
   .page-corporativo .hero-content h1 { font-size: 24px; }
   .page-corporativo .hero-content .eyebrow { font-size: 10.5px; }
 
-  /* Debutante: conteúdo centralizado nessas seções no mobile */
+  /* Debutante e Casamentos: conteúdo centralizado nessas seções no mobile */
   .page-debutantes .experience-text,
   .page-debutantes .technology .container > .reveal:first-child,
   .page-debutantes .gastronomy .container > .reveal:first-child,
-  .page-debutantes .contact-info { text-align: center; }
+  .page-debutantes .contact-info,
+  .page-casamentos .experience-text,
+  .page-casamentos .technology .container > .reveal:first-child,
+  .page-casamentos .gastronomy .container > .reveal:first-child,
+  .page-casamentos .contact-info { text-align: center; }
   .page-debutantes .technology .lede,
   .page-debutantes .gastronomy .lede,
-  .page-debutantes .contact-info p { margin-left: auto; margin-right: auto; }
+  .page-debutantes .contact-info p,
+  .page-casamentos .technology .lede,
+  .page-casamentos .gastronomy .lede,
+  .page-casamentos .contact-info p { margin-left: auto; margin-right: auto; }
 }

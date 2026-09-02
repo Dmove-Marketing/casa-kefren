@@ -1,0 +1,346 @@
+---
+import Base from '../layouts/Base.astro';
+import StaticMap from '../components/ui/StaticMap.astro';
+import config from '../../config.json';
+import { getPreset } from '../scripts/form-presets';
+import '../styles/casa-kefren.css';
+
+const title = 'Casa Kefren | Casamentos no Tatuapé, São Paulo';
+const description =
+  'Um cenário à altura do casamento que você imaginou. Estrutura para 100 a 300 convidados, arquitetura contemporânea, gastronomia à altura da celebração e atendimento personalizado no Tatuapé, São Paulo.';
+const webhook = config.forms['lead-form'].webhooks[0];
+// Funil social (sem campo "empresa") — ver funnelPreset em form-presets.ts
+const fields = getPreset('social');
+const CDN = config.media.cdn_base + '/photos';
+---
+
+<Base title={title} description={description} canonical={`https://${config.domain}/casamentos`} bodyClass="page-casamentos">
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="container">
+    <a href="#topo" class="logo-link" aria-label="Casa Kefren">
+      <img src={`${CDN}/logo_principal_resultado.webp`} alt="Casa Kefren" />
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#experiencia">A celebração</a></li>
+        <li><a href="#espacos">Espaços</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="nav-toggle" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu">
+  <a href="#experiencia">A celebração</a>
+  <a href="#espacos">Espaços</a>
+  <a href="#diferenciais">Diferenciais</a>
+  <a href="#galeria">Galeria</a>
+  <a href="#localizacao">Localização</a>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="topo">
+  <div class="hero-media">
+    <img fetchpriority="high" src={`${CDN}/Gemini_Generated_Image_mbmls1mbmls1mbml.webp`} alt="Casal de noivos no salão da Casa Kefren decorado para casamento, com iluminação sofisticada" style="object-position: center 60%;" />
+    <div class="frame-mark" aria-hidden="true"></div>
+  </div>
+  <div class="hero-content container">
+    <h1><em>Um cenário à altura</em><br>do casamento<br class="br-mobile"> que você imaginou</h1>
+    <p class="eyebrow center">Casamento | Tatuapé</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn btn-primary">Solicite orçamento</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AUTORIDADE ===================== -->
+<section class="authority authority-compact">
+  <div class="container">
+    <div class="authority-item reveal"><span><span class="count" data-target="100">0</span> a <span class="count" data-target="300">0</span> convidados</span></div>
+    <div class="authority-divider"></div>
+    <div class="authority-item reveal"><span>Arquitetura contemporânea</span></div>
+    <div class="authority-divider"></div>
+    <div class="authority-item reveal"><span>Estrutura versátil</span></div>
+  </div>
+</section>
+
+<!-- ===================== EXPERIÊNCIA 360° ===================== -->
+<section class="experience" id="experiencia">
+  <div class="container">
+    <div class="experience-text reveal">
+      <div class="section-head">
+        <p class="eyebrow no-line">Experiência 360°</p>
+        <h2><em>O seu estilo</em><br>em cada escolha</h2>
+        <p>Na Casa Kefren, seu casamento é planejado para unir sofisticação, estrutura e personalização em uma celebração que tenha a identidade dos noivos. Ambientes versáteis, serviços especializados e uma equipe preparada para cuidar de cada etapa, para que vocês aproveitem a festa do início ao fim.</p>
+      </div>
+      <a href="#contato" class="btn btn-outline-dark experience-cta">Solicite orçamento</a>
+    </div>
+    <div class="experience-media experience-media-portrait reveal">
+      <video autoplay muted loop playsinline preload="metadata" poster={`${CDN}/galeria_casamentos03_resultado.webp`} aria-label="Vídeo institucional da Casa Kefren mostrando o ambiente preparado para casamento">
+        <source src="https://media.dmove.com.br/clients/casa-kefren/videos/sobre_debutante.webm" type="video/webm">
+      </video>
+      <div class="frame-mark" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ESPAÇOS ===================== -->
+<section class="spaces" id="espacos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">Espaços</p>
+      <h2>Ambientes que <em>acompanham</em><br>cada momento<br class="br-mobile"> da sua celebração</h2>
+    </div>
+    <div class="spaces-grid spaces-grid-3">
+      <div class="space-card reveal">
+        <img src={`${CDN}/salao_casamentos_resultado.webp`} alt="Salão principal da Casa Kefren decorado para casamento" />
+        <div class="space-card-body">
+          <h3>Salão principal</h3>
+          <p>Arquitetura contemporânea, amplitude e liberdade para criar uma celebração com a personalidade dos noivos.</p>
+          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
+        </div>
+      </div>
+      <div class="space-card reveal">
+        <img src={`${CDN}/area-externa_casamentos_resultado.webp`} alt="Área externa da Casa Kefren com teto retrátil" />
+        <div class="space-card-body">
+          <h3>Área externa</h3>
+          <p>Mais possibilidades para compor o seu casamento. Com teto retrátil e estrutura versátil, o ambiente pode receber diferentes propostas, como lounge, espaço para fotos ou momentos especiais ao longo da celebração.</p>
+          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
+        </div>
+      </div>
+      <div class="space-card reveal">
+        <img src={`${CDN}/camarim_casamentos_resultado.webp`} alt="Camarim reservado da Casa Kefren para os preparativos dos noivos" />
+        <div class="space-card-body">
+          <h3>Camarim</h3>
+          <p>Um espaço reservado para os preparativos antes da celebração. Na Casa Kefren, o making of ganha conforto, privacidade e atenção aos detalhes para que os noivos possam aproveitar também esse momento que antecede a festa.</p>
+          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOTO DE DESTAQUE ===================== -->
+<section class="spotlight" style={`--spotlight-bg:url(${CDN}/$R58S9EL.webp)`}>
+  <img src={`${CDN}/$R58S9EL.webp`} alt="Noivos na pista de dança da Casa Kefren durante o casamento" loading="lazy" />
+</section>
+
+<!-- ===================== DIFERENCIAIS ===================== -->
+<section class="differentials" id="diferenciais">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">Diferenciais</p>
+      <h2>Uma estrutura completa<br>para você se preocupar<br class="br-mobile"> apenas em <em>celebrar</em></h2>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-card reveal">
+        <img src={`${CDN}/alta-gastronomia_casamentos_resultado.webp`} alt="Gastronomia de alto padrão na Casa Kefren" loading="lazy" />
+        <span>Gastronomia de alto padrão</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src={`${CDN}/bar_casamentos_resultado.webp`} alt="Bar e coquetelaria da Casa Kefren" loading="lazy" />
+        <span>Bar e coquetelaria</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src={`${CDN}/Tecnologia_resultado.webp`} alt="Tecnologia e audiovisual em casamento na Casa Kefren" loading="lazy" />
+        <span>Tecnologia e audiovisual</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src={`${CDN}/decoracao_casamentos_resultado.webp`} alt="Decoração de casamento na Casa Kefren" loading="lazy" />
+        <span>Decoração</span>
+      </div>
+      <div class="diff-card reveal">
+        <img src={`${CDN}/atendimento_casamentos_resultado.webp`} alt="Atendimento personalizado da equipe Casa Kefren" loading="lazy" />
+        <span>Atendimento personalizado</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GASTRONOMIA ===================== -->
+<section class="gastronomy">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-dark no-line">Gastronomia</p>
+      <h2>Gastronomia à altura de uma<br class="br-mobile"> <em>celebração especial</em></h2>
+      <p class="lede">Na Casa Kefren, gastronomia e coquetelaria fazem parte da experiência do casamento. Com menus personalizados e drinks cuidadosamente elaborados, cada escolha é pensada para harmonizar sabores, apresentação e a identidade da celebração.</p>
+    </div>
+    <div class="gastronomy-track-wrap reveal">
+      <div class="gastronomy-track">
+        <a href={`${CDN}/gastronomia_casamentos01_resultado.webp`} target="_blank" rel="noopener"><figure><img src={`${CDN}/gastronomia_casamentos01_resultado.webp`} alt="Prato autoral servido em casamento na Casa Kefren" loading="lazy" /></figure></a>
+        <a href={`${CDN}/gastronomia_casamentos02_resultado.webp`} target="_blank" rel="noopener"><figure><img src={`${CDN}/gastronomia_casamentos02_resultado.webp`} alt="Coquetelaria autoral em casamento na Casa Kefren" loading="lazy" /></figure></a>
+        <a href={`${CDN}/gastronomia_casamentos03_resultado.webp`} target="_blank" rel="noopener"><figure><img src={`${CDN}/gastronomia_casamentos03_resultado.webp`} alt="Serviço gastronômico em casamento na Casa Kefren" loading="lazy" /></figure></a>
+        <a href={`${CDN}/gastronomia_casamentos04_resultado.webp`} target="_blank" rel="noopener"><figure><img src={`${CDN}/gastronomia_casamentos04_resultado.webp`} alt="Detalhe de prato e apresentação em casamento na Casa Kefren" loading="lazy" /></figure></a>
+      </div>
+      <div class="gastronomy-nav">
+        <button class="gastronomy-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="gastronomy-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TECNOLOGIA + PISTA DE DANÇA ===================== -->
+<section class="technology">
+  <div class="container">
+    <div class="reveal">
+      <p class="eyebrow no-line">Pista de dança</p>
+      <h2><em>Uma pista de dança</em><br>pronta para marcar a noite</h2>
+      <p class="lede">Infraestrutura completa com tecnologia de luz, som e projeção mapeada.</p>
+    </div>
+    <div class="technology-media reveal">
+      <img src={`${CDN}/pista_casamentos_resultado.webp`} alt="Pista de dança da Casa Kefren durante um casamento, com tecnologia de luz e som" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERIA ===================== -->
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow no-line">Galeria</p>
+      <h2><em>Imagine</em> seu casamento<br>acontecendo aqui</h2>
+    </div>
+    <div class="gallery-mosaic gallery-mosaic-6">
+      <a href={`${CDN}/galeria_casamentos01_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos01_resultado.webp`} alt="Casamento na Casa Kefren 1" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos02_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos02_resultado.webp`} alt="Casamento na Casa Kefren 2" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos03_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos03_resultado.webp`} alt="Casamento na Casa Kefren 3" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos04_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos04_resultado.webp`} alt="Casamento na Casa Kefren 4" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos05_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos05_resultado.webp`} alt="Casamento na Casa Kefren 5" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos06_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos06_resultado.webp`} alt="Casamento na Casa Kefren 6" loading="lazy" /></figure></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="contact" id="contato">
+  <div class="container">
+    <div class="contact-info reveal">
+      <p class="eyebrow no-line">Contato</p>
+      <h2>O casamento que você<br><em>imaginou</em> começa aqui</h2>
+      <p>Preencha o formulário e, em breve, nosso time entrará em contato com você.</p>
+      <div class="contact-address">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <strong>Casa Kefren</strong>
+          R. Padre Estevão Pernet, 276 — Tatuapé, São Paulo - SP, 03315-000
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card reveal">
+      <form id="contact-form" novalidate data-form-id="lead-form" data-project="casa-kefren" data-submit-url={webhook} data-fonte="Landing page/casamentos" data-grid-id="contact-form" data-success-id="contact-success">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+        <div class="form-grid">
+          {fields.map((f) => {
+            // id no padrão do GTM (Enhanced Conversions leem #form-field-nome/email/telefone)
+            const fid = `form-field-${f.name}`;
+            return (
+              <div class:list={['field', f.full && 'full']}>
+                <label for={fid}>{f.label}{f.hint && <span class="field-opt"> ({f.hint})</span>}</label>
+                {f.type === 'select' ? (
+                  <select id={fid} name={f.name} required={f.required}>
+                    {f.options?.map((o) => (
+                      <option value={o.value} disabled={o.disabled} selected={o.selected}>{o.label}</option>
+                    ))}
+                  </select>
+                ) : f.type === 'textarea' ? (
+                  <textarea id={fid} name={f.name} rows={4} placeholder={f.placeholder} required={f.required}></textarea>
+                ) : f.datepicker ? (
+                  <input type="text" id={fid} name={f.name} placeholder={f.placeholder} required={f.required} autocomplete="off" data-flatpickr />
+                ) : (
+                  <input type={f.type} id={fid} name={f.name} placeholder={f.placeholder} required={f.required} />
+                )}
+              </div>
+            );
+          })}
+        </div>
+        <button type="submit" class="btn btn-primary">Solicitar Orçamento</button>
+        <p class="form-note">Em até 1 dia útil nossa equipe entrará em contato.</p>
+      </form>
+      <div class="form-success" id="contact-success">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        <h3>Recebemos sua solicitação!</h3>
+        <p>Obrigado pelo interesse na Casa Kefren. Nossa equipe entrará em contato em breve para dar sequência ao seu orçamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOCALIZAÇÃO ===================== -->
+<section class="location" id="localizacao">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow center">Localização</p>
+      <h2><em>Localização estratégica</em><br>para o seu grande dia</h2>
+    </div>
+    <div class="location-frame reveal">
+      <StaticMap
+        src="https://www.google.com/maps?q=Casa+Kefren%2C+R.+Padre+Estev%C3%A3o+Pernet%2C+276+-+Tatuap%C3%A9%2C+S%C3%A3o+Paulo+-+SP%2C+03315-000&output=embed"
+        height={460}
+      />
+    </div>
+    <div class="location-cta reveal">
+      <a href="#contato" class="btn btn-primary">Agende uma visita</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <img src={`${CDN}/logo_principal_resultado.webp`} alt="Casa Kefren" />
+      <ul class="footer-nav">
+        <li><a href="#experiencia">A celebração</a></li>
+        <li><a href="#espacos">Espaços</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>R. Padre Estevão Pernet, 276 — Tatuapé, São Paulo - SP, 03315-000</span>
+      <span>&copy; 2026 Casa Kefren. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+  <script>
+    import '../scripts/casa-kefren.js';
+    import { initForms } from '../scripts/forms';
+    import flatpickr from 'flatpickr';
+    import { Portuguese } from 'flatpickr/dist/l10n/pt.js';
+    import 'flatpickr/dist/flatpickr.min.css';
+
+    function initDatepickers() {
+      document.querySelectorAll('[data-flatpickr]').forEach((el) => {
+        if (el.dataset.flatpickrReady) return;
+        el.dataset.flatpickrReady = 'true';
+        // máscara de digitação dd/mm/aaaa
+        el.addEventListener('input', () => {
+          let v = el.value.replace(/\D/g, '').slice(0, 8);
+          if (v.length > 4) v = `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4)}`;
+          else if (v.length > 2) v = `${v.slice(0, 2)}/${v.slice(2)}`;
+          el.value = v;
+        });
+        flatpickr(el, {
+          locale: Portuguese,
+          dateFormat: 'd/m/Y',
+          minDate: 'today',
+          disableMobile: true,
+          allowInput: true,
+        });
+      });
+    }
+
+    initForms();
+    initDatepickers();
+  </script>
+</Base>
