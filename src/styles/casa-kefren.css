@@ -371,6 +371,7 @@ p { margin: 0; line-height: 1.36; }
 }
 .experience-text .section-head { margin-bottom: 0; max-width: none; }
 .experience-cta { margin-top: 20px; }
+.experience-cta-mobile { display: none; }
 .experience-media {
   position: relative;
   border-radius: var(--radius-lg);
@@ -434,6 +435,7 @@ p { margin: 0; line-height: 1.36; }
 .spaces-grid-3 .space-card-body h3 { font-size: clamp(17px, 1.7vw, 20px); margin-bottom: 8px; }
 .spaces-grid-3 .space-card-body p { font-size: 13px; margin-bottom: 16px; }
 .spaces-grid-3 .space-card-body .btn-sm { padding: 9px 18px; font-size: 11px; letter-spacing: 0.05em; }
+.spaces-cta { margin-top: 40px; text-align: center; }
 
 /* ---------- Spotlight (foto de destaque em tela cheia) ---------- */
 .spotlight {
@@ -605,6 +607,35 @@ p { margin: 0; line-height: 1.36; }
   font-size: clamp(28px, 3.6vw, 42px);
   line-height: 1.08;
   color: var(--text-dark);
+}
+/* Casamentos: carrossel com a mesma largura do bloco de texto (título fixo em 2 linhas:
+   "Gastronomia à altura de" / "uma celebração especial"). Só no layout de 2 colunas (desktop). */
+@media (min-width: 981px) {
+  .page-casamentos .gastronomy .container { grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 40px); }
+  /* Carrossel: 1 lâmina por vez, ocupando toda a largura da coluna, em formato horizontal */
+  .page-casamentos .gastronomy-track > a { flex: 0 0 auto; width: 100%; }
+  .page-casamentos .gastronomy-track figure { width: 100%; aspect-ratio: 16/9; }
+  /* Setas sobre a própria imagem, em vez de abaixo do carrossel */
+  .page-casamentos .gastronomy-nav {
+    position: absolute;
+    inset: 0;
+    margin-top: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    pointer-events: none;
+  }
+  .page-casamentos .gastronomy-nav button {
+    pointer-events: auto;
+    background: rgba(250, 247, 242, 0.9) !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 16px rgba(20, 17, 16, 0.25);
+  }
+  .page-casamentos .gastronomy-nav button:hover {
+    background: var(--wine) !important;
+    border-color: var(--wine) !important;
+    color: #fff;
+  }
 }
 .gastronomy-track-wrap { position: relative; min-width: 0; }
 .gastronomy-track {
@@ -845,6 +876,10 @@ p { margin: 0; line-height: 1.36; }
 
   /* .experience-media-portrait: texto antes da imagem, formato 16/9 */
   .experience-media-portrait { order: 0; aspect-ratio: 16/9; }
+
+  /* Casamentos: no mobile, o botão "Solicite orçamento" aparece depois do vídeo */
+  .page-casamentos .experience-cta-desktop { display: none; }
+  .page-casamentos .experience-cta-mobile { display: inline-flex; margin-top: 24px; }
 
   .authority { padding: 42px 0; }
   .authority-compact { padding: 14px 0; }

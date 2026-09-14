@@ -78,9 +78,9 @@ const CDN = config.media.cdn_base + '/photos';
       <div class="section-head">
         <p class="eyebrow no-line">Experiência 360°</p>
         <h2><em>O seu estilo</em><br>em cada escolha</h2>
-        <p>Na Casa Kefren, seu casamento é planejado para unir sofisticação, estrutura e personalização em uma celebração que tenha a identidade dos noivos. Ambientes versáteis, serviços especializados e uma equipe preparada para cuidar de cada etapa, para que vocês aproveitem a festa do início ao fim.</p>
+        <p>Na Casa Kefren, seu casamento combina sofisticação, estrutura e personalização, com ambientes versáteis, serviços especializados e uma equipe preparada para acompanhar cada etapa da celebração.</p>
       </div>
-      <a href="#contato" class="btn btn-outline-dark experience-cta">Solicite orçamento</a>
+      <a href="#contato" class="btn btn-outline-dark experience-cta experience-cta-desktop">Solicite orçamento</a>
     </div>
     <div class="experience-media experience-media-portrait reveal">
       <video autoplay muted loop playsinline preload="metadata" poster={`${CDN}/galeria_casamentos03_resultado.webp`} aria-label="Vídeo institucional da Casa Kefren mostrando o ambiente preparado para casamento">
@@ -88,6 +88,7 @@ const CDN = config.media.cdn_base + '/photos';
       </video>
       <div class="frame-mark" aria-hidden="true"></div>
     </div>
+    <a href="#contato" class="btn btn-outline-dark experience-cta experience-cta-mobile">Solicite orçamento</a>
   </div>
 </section>
 
@@ -96,7 +97,7 @@ const CDN = config.media.cdn_base + '/photos';
   <div class="container">
     <div class="section-head center reveal">
       <p class="eyebrow center">Espaços</p>
-      <h2>Ambientes que <em>acompanham</em><br>cada momento<br class="br-mobile"> da sua celebração</h2>
+      <h2>Ambientes que acompanham<br>cada momento<br class="br-mobile"> <em>da sua celebração</em></h2>
     </div>
     <div class="spaces-grid spaces-grid-3">
       <div class="space-card reveal">
@@ -104,25 +105,25 @@ const CDN = config.media.cdn_base + '/photos';
         <div class="space-card-body">
           <h3>Salão principal</h3>
           <p>Arquitetura contemporânea, amplitude e liberdade para criar uma celebração com a personalidade dos noivos.</p>
-          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
         </div>
       </div>
       <div class="space-card reveal">
         <img src={`${CDN}/area-externa_casamentos_resultado.webp`} alt="Área externa da Casa Kefren com teto retrátil" />
         <div class="space-card-body">
           <h3>Área externa</h3>
-          <p>Mais possibilidades para compor o seu casamento. Com teto retrátil e estrutura versátil, o ambiente pode receber diferentes propostas, como lounge, espaço para fotos ou momentos especiais ao longo da celebração.</p>
-          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
+          <p>Teto retrátil que permite adaptar o ambiente para diferentes propostas, criando lounges e espaços para fotos.</p>
         </div>
       </div>
       <div class="space-card reveal">
         <img src={`${CDN}/camarim_casamentos_resultado.webp`} alt="Camarim reservado da Casa Kefren para os preparativos dos noivos" style="object-position: 20% center;" />
         <div class="space-card-body">
           <h3>Camarim</h3>
-          <p>Um espaço reservado para os preparativos antes da celebração. Na Casa Kefren, o making of ganha conforto, privacidade e atenção aos detalhes para que os noivos possam aproveitar também esse momento que antecede a festa.</p>
-          <a href="#contato" class="btn btn-ghost btn-sm">Agende uma visita</a>
+          <p>Espaço reservado para proporcionar conforto e privacidade para os noivos aproveitarem antes da festa.</p>
         </div>
       </div>
+    </div>
+    <div class="spaces-cta reveal">
+      <a href="#contato" class="btn btn-primary">Agende uma visita</a>
     </div>
   </div>
 </section>
@@ -137,7 +138,7 @@ const CDN = config.media.cdn_base + '/photos';
   <div class="container">
     <div class="section-head center reveal">
       <p class="eyebrow center">Diferenciais</p>
-      <h2>Uma estrutura completa<br>para você se preocupar<br class="br-mobile"> apenas em <em>celebrar</em></h2>
+      <h2>Uma estrutura completa<br class="br-mobile"> para você<br class="br-desktop"> se preocupar<br class="br-mobile"> apenas em <em>celebrar</em></h2>
     </div>
     <div class="diff-grid">
       <div class="diff-card reveal">
@@ -169,8 +170,8 @@ const CDN = config.media.cdn_base + '/photos';
   <div class="container">
     <div class="reveal">
       <p class="eyebrow eyebrow-dark no-line">Gastronomia</p>
-      <h2>Gastronomia à altura de uma<br class="br-mobile"> <em>celebração especial</em></h2>
-      <p class="lede">Na Casa Kefren, gastronomia e coquetelaria fazem parte da experiência do casamento. Com menus personalizados e drinks cuidadosamente elaborados, cada escolha é pensada para harmonizar sabores, apresentação e a identidade da celebração.</p>
+      <h2>Gastronomia à altura de<br> uma <em>celebração especial</em></h2>
+      <p class="lede">Gastronomia e coquetelaria com menus personalizados, drinks elaborados e sabores que traduzem a identidade da celebração.</p>
     </div>
     <div class="gastronomy-track-wrap reveal">
       <div class="gastronomy-track">
@@ -192,7 +193,7 @@ const CDN = config.media.cdn_base + '/photos';
   <div class="container">
     <div class="reveal">
       <p class="eyebrow no-line">Pista de dança</p>
-      <h2><em>Uma pista de dança</em><br>pronta para marcar a noite</h2>
+      <h2><em>Uma pista de dança</em><br>pronta para marcar<br>a noite</h2>
       <p class="lede">Infraestrutura completa com tecnologia de luz, som e projeção mapeada.</p>
     </div>
     <div class="technology-media reveal">
