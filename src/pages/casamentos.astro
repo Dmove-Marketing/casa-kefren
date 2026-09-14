@@ -210,13 +210,19 @@ const CDN = config.media.cdn_base + '/photos';
       <h2><em>Imagine</em> seu casamento<br>acontecendo aqui</h2>
     </div>
     <div class="gallery-mosaic gallery-mosaic-6">
-      <a href={`${CDN}/galeria_casamentos01_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos01_resultado.webp`} alt="Casamento na Casa Kefren 1" loading="lazy" /></figure></a>
-      <a href={`${CDN}/galeria_casamentos06_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos06_resultado.webp`} alt="Casamento na Casa Kefren 2" loading="lazy" /></figure></a>
-      <a href={`${CDN}/galeria_casamentos03_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos03_resultado.webp`} alt="Casamento na Casa Kefren 3" loading="lazy" /></figure></a>
-      <a href={`${CDN}/galeria_casamentos05_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos05_resultado.webp`} alt="Casamento na Casa Kefren 4" loading="lazy" /></figure></a>
-      <a href={`${CDN}/galeria_casamentos02_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos02_resultado.webp`} alt="Casamento na Casa Kefren 5" loading="lazy" /></figure></a>
-      <a href={`${CDN}/galeria_casamentos04_resultado.webp`} target="_blank" rel="noopener" class="reveal"><figure><img src={`${CDN}/galeria_casamentos04_resultado.webp`} alt="Casamento na Casa Kefren 6" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos01_resultado.webp`} data-lightbox="galeria-casamentos" class="reveal"><figure><img src={`${CDN}/galeria_casamentos01_resultado.webp`} alt="Casamento na Casa Kefren 1" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos06_resultado.webp`} data-lightbox="galeria-casamentos" class="reveal"><figure><img src={`${CDN}/galeria_casamentos06_resultado.webp`} alt="Casamento na Casa Kefren 2" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos03_resultado.webp`} data-lightbox="galeria-casamentos" class="reveal"><figure><img src={`${CDN}/galeria_casamentos03_resultado.webp`} alt="Casamento na Casa Kefren 3" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos05_resultado.webp`} data-lightbox="galeria-casamentos" class="reveal"><figure><img src={`${CDN}/galeria_casamentos05_resultado.webp`} alt="Casamento na Casa Kefren 4" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos02_resultado.webp`} data-lightbox="galeria-casamentos" class="reveal"><figure><img src={`${CDN}/galeria_casamentos02_resultado.webp`} alt="Casamento na Casa Kefren 5" loading="lazy" /></figure></a>
+      <a href={`${CDN}/galeria_casamentos04_resultado.webp`} data-lightbox="galeria-casamentos" class="reveal"><figure><img src={`${CDN}/galeria_casamentos04_resultado.webp`} alt="Casamento na Casa Kefren 6" loading="lazy" /></figure></a>
     </div>
+  </div>
+  <div class="lightbox" id="galeria-lightbox" role="dialog" aria-modal="true" aria-label="Imagem da galeria ampliada" hidden>
+    <button class="lightbox-close" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    <button class="lightbox-prev" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+    <button class="lightbox-next" aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    <img class="lightbox-img" src="" alt="" />
   </div>
 </section>
 

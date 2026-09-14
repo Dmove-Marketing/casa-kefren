@@ -136,3 +136,53 @@ function setupCarousel(trackSel, prevSel, nextSel) {
   prevBtn.addEventListener('click', () => goTo(index - 1));
 }
 setupCarousel('.gastronomy-track', '.gastronomy-prev', '.gastronomy-next');
+
+/* Lightbox da galeria — abre a imagem em overlay em vez de navegar até o arquivo */
+function setupLightbox(linkSelector, lightboxId) {
+  const links = Array.from(document.querySelectorAll(linkSelector));
+  const lightbox = document.getElementById(lightboxId);
+  if (!links.length || !lightbox) return;
+
+  const img = lightbox.querySelector('.lightbox-img');
+  const closeBtn = lightbox.querySelector('.lightbox-close');
+  const prevBtn = lightbox.querySelector('.lightbox-prev');
+  const nextBtn = lightbox.querySelector('.lightbox-next');
+  let index = 0;
+
+  function show(i) {
+    index = (i + links.length) % links.length;
+    const link = links[index];
+    img.src = link.getAttribute('href');
+    img.alt = link.querySelector('img')?.getAttribute('alt') || '';
+  }
+
+  function open(i) {
+    show(i);
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  links.forEach((link, i) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      open(i);
+    });
+  });
+
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', () => show(index - 1));
+  nextBtn.addEventListener('click', () => show(index + 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(index - 1);
+    if (e.key === 'ArrowRight') show(index + 1);
+  });
+}
+setupLightbox('a[data-lightbox="galeria-casamentos"]', 'galeria-lightbox');
